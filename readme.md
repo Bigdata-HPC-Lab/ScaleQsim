@@ -122,22 +122,22 @@ If you use ScaleQsim in your research, please cite:
 
 ```
 @article{10.1145/3771577,
-author = {Kim, Changjong and Sohn, Ehan and Kim, Seunghwan and Sim, Alex and Wu, Kesheng and Tang, Houjun and Son, Yongseok and Kim, Sunggon},
-title = {ScaleQsim: Highly Scalable Quantum Circuit Simulation Framework for Exascale HPC Systems},
-year = {2025},
-issue_date = {December 2025},
-publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
-volume = {9},
-number = {3},
-url = {https://doi.org/10.1145/3771577},
-doi = {10.1145/3771577},
-abstract = {Large-scale quantum circuit simulation on high-performance computing (HPC) systems is crucial for developing and verifying quantum algorithms to overcome the limitations of current noisy quantum computers. However, existing simulators face scalability bottlenecks due to memory limits and communication overhead. Many state-of-the-art approaches rely on static circuit partitioning, which makes it difficult to address the exponential growth in problem size as the number of qubits increases. To overcome these challenges, we present ScaleQsim, a highly scalable quantum circuit simulation framework for large-scale HPC systems. ScaleQsim focuses on providing a unified representation of the full qubit state, yet provides scalability through efficient synchronization and communication. ScaleQsim adopts a novel full state vector partitioning strategy that evenly distributes the full state vector across multiple nodes and GPUs. This distributed structure enables efficient parallel gate execution without costly synchronization, and ScaleQsim applies adaptive kernel configuration, which adjusts execution parameters based on GPU resources and task granularity to enhance simulation efficiency. Our evaluation on a leadership-scale supercomputer with up to 512 GPUs demonstrates that ScaleQsim simulates quantum circuits with up to 42 qubits and outperforms leading SOTA simulators by up to 77.40\texttimes{} across various quantum circuits.},
-journal = {Proc. ACM Meas. Anal. Comput. Syst.},
-month = dec,
-articleno = {62},
-numpages = {28},
-keywords = {high-performance computing, quantum circuit simulation, quantum computing}
+  author = {Kim, Changjong and Sohn, Ehan and Kim, Seunghwan and Sim, Alex and Wu, Kesheng and Tang, Houjun and Son, Yongseok and Kim, Sunggon},
+  title = {ScaleQsim: Highly Scalable Quantum Circuit Simulation Framework for Exascale HPC Systems},
+  year = {2025},
+  issue_date = {December 2025},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  volume = {9},
+  number = {3},
+  url = {https://doi.org/10.1145/3771577},
+  doi = {10.1145/3771577},
+  abstract = {Large-scale quantum circuit simulation on high-performance computing (HPC) systems is crucial for developing and verifying quantum algorithms to overcome the limitations of current noisy quantum computers. However, existing simulators face scalability bottlenecks due to memory limits and communication overhead. Many state-of-the-art approaches rely on static circuit partitioning, which makes it difficult to address the exponential growth in problem size as the number of qubits increases. To overcome these challenges, we present ScaleQsim, a highly scalable quantum circuit simulation framework for large-scale HPC systems. ScaleQsim focuses on providing a unified representation of the full qubit state, yet provides scalability through efficient synchronization and communication. ScaleQsim adopts a novel full state vector partitioning strategy that evenly distributes the full state vector across multiple nodes and GPUs. This distributed structure enables efficient parallel gate execution without costly synchronization, and ScaleQsim applies adaptive kernel configuration, which adjusts execution parameters based on GPU resources and task granularity to enhance simulation efficiency. Our evaluation on a leadership-scale supercomputer with up to 512 GPUs demonstrates that ScaleQsim simulates quantum circuits with up to 42 qubits and outperforms leading SOTA simulators by up to 77.40\texttimes{} across various quantum circuits.},
+  journal = {Proc. ACM Meas. Anal. Comput. Syst.},
+  month = dec,
+  articleno = {62},
+  numpages = {28},
+  keywords = {high-performance computing, quantum circuit simulation, quantum computing}
 }
 ```
 
