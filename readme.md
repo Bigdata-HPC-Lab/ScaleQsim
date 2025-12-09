@@ -1,7 +1,6 @@
-<img width="1156" height="411" alt="image" src="https://github.com/user-attachments/assets/2f3708bd-a7ab-4ad3-9069-48bb8e3e89e8" />
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/2f3708bd-a7ab-4ad3-9069-48bb8e3e89e8" />
 
-# ScaleQsim: Highly Scalable Quantum Circuit Simulation Framework for Exascale HPC Sys![file](https://github.com/user-attachments/assets/dd01e1fb-b9ea-427c-8e32-1051ed62ded6)
-tems
+# ScaleQsim: Highly Scalable Quantum Circuit Simulation Framework for Exascale HPC Systems
 ## SIGMETRICS 2026 - [Paper Link](https://dl.acm.org/doi/pdf/10.1145/3771577) (Testeed in Perlmutter Supercomputer @ NERSC)
 
 [Installation](#installation) | [Usage](#usage) | [Performance](#performance) | [Citation](#citation)
