@@ -40,110 +40,6 @@ ScaleQsim modifies and extends the following core Qsim modules:
 
 ---
 
-## Installation
-
-### Prerequisites
-
-- Python 3.9 or higher
-- MPI library (OpenMPI, MPICH, or compatible)
-- Modern C++ compiler (GCC 11+ or Clang 10+)
-- CMake 3.15+
-- (Optional) CUDA 12.0+ for GPU acceleration
-- CUDA Toolkit 12.2
-
-### Environment Setup (NERSC Perlmutter)
-
-- PrgEnv-nvidia
-- cudatoolkit/12.2
-- craype-accel-nvidia80
-- python/3.9
-- cray-mpich/8.1.27
-- gcc/11.2.0
-
-## Quick Start (Perlmutter@NERSC) 
-
-### Configuration 
-ScaleQsim contains extensive hard-coded logic for performance optimization. You must modify the source code and rebuild the project before every experiment, especially when changing variables (e.g., num_qubits = [qubit counts]).
-
-### Hardware Requirements
-ScaleQsim was developed and tested only on A100-80GB GPUs (with HBM). Therefore, behavior on A100-40GB is not fully validated.
-
-### Set Qubit Count
-Open the following header files and manually update the num_qubits variable to your desired count (e.g., 30, 32, 34). The default is typically set to 36.
-- Files to edit: simulator_cuda.h, vectorspace_cuda.h
-- Variable: num_qubits = [YOUR_QUBIT_COUNT];
-
-### Select Library Path
-Ensure your build targets the correct library source depending on your node configuration:
-- Single Node (1 Node, 4 GPUs): Use source code in /ScaleQsim/lib_test/lib_multigpu
-- Multi-Node: Use source code in /ScaleQsim/lib
-- Backup/Spare version available at /ScaleQsim/lib_test/lib_multinode
-
-### Environment Setup
-
-```
-1. Activate Conda Environment (optional]
-conda activate [conda_name]
-
-2. Load Modules
-module load PrgEnv-nvidia
-module load cudatoolkit/12.2
-module load python/3.9
-module load cray-mpich/8.1.27
-module load nccl/2.21.5
-
-3. Reload Accelerator Module (Required for correct GTL linking on Cray)
-module unload craype-accel-nvidia80
-module load craype-accel-nvidia80
-
-4. Export Environment Variables
-export MPICH_GPU_SUPPORT_ENABLED=1
-
-Set Paths (Dynamically matches the active Conda env)
-If $CONDA_PREFIX is empty, replace it with your absolute env path.
-export CONDA_PREFIX=${CONDA_PREFIX:/CONDA_HOME}
-export CUDA_PATH=[CUDA_PATH]
-
-5. Link GPU Transport Layer (GTL) for MPI
-export LD_PRELOAD=$CONDA_PREFIX/lib/libmpi_gtl_cuda.so
-
-6. Set Visible Devices 
-export CUDA_VISIBLE_DEVICES=0,1,2,3
-```
-
-### Build
-ScaleQsim contains extensive hard-coded logic. If you want to run any experiment, you must rebuild the project.
-```
-cd /ScaleQsim
-make -j [proc]
-```
-
-### Run
-
-Single Node Execution: Config-1 Node with 4 GPUs (All GPUs utilized)
-```
-srun -n 1 --ntasks=1 --gpus-per-node=4 --mpi=pmi2 python qft.py
-```
-Multi-Node Execution: Config-4 Nodes (16 GPUs total)
-```
-srun -n 4 --ntasks=4 --gpus-per-node=4 --mpi=pmi2 python qft.py
-```
-Multi-Node Execution: Config-8 Nodes (32 GPUs total)
-```
-srun -n 8 --ntasks=8 --gpus-per-node=4 --mpi=pmi2 python qft.py
-```
-
-### Verifying Performance
-When you check the logs, the line labeled “simu time” indicates the correct measurement. This value represents the actual simulation time for executing all gates in the circuit.
-
-### Circuits Used
-We only used static circuits, and all circuit implementations were written with Cirq (Our benchmark included the ScaleQsim project). 
-
-###
-
-
----
-
 ## Architecture Overview
 
 ### System Design
@@ -186,6 +82,110 @@ ScaleQsim follows a modular, layered architecture designed for maximum scalabili
 2. **State Manager**: Handles distributed quantum state representation and caching
 3. **Kernel Engine**: Implements high-performance gate operations on CPU/GPU
 4. **Communication Subsystem**: Manages efficient data movement between compute nodes
+
+---
+
+
+## Installation
+
+### Prerequisites
+
+- Python 3.9 or higher
+- MPI library (OpenMPI, MPICH, or compatible)
+- Modern C++ compiler (GCC 11+ or Clang 10+)
+- CMake 3.15+
+- (Optional) CUDA 12.0+ for GPU acceleration
+- CUDA Toolkit 12.2
+
+### Environment Setup (NERSC Perlmutter)
+
+- PrgEnv-nvidia
+- cudatoolkit/12.2
+- craype-accel-nvidia80
+- python/3.9
+- cray-mpich/8.1.27
+- gcc/11.2.0
+
+## Quick Start (Perlmutter@NERSC) 
+
+### Configuration 
+ScaleQsim contains extensive hard-coded logic for performance optimization. You must modify the source code and rebuild the project before every experiment, especially when changing variables (e.g., num_qubits = [qubit counts]).
+
+### Hardware Requirements
+ScaleQsim was developed and tested only on A100-80GB GPUs (with HBM). Therefore, behavior on A100-40GB is not fully validated.
+
+### Set Qubit Count
+Open the following header files and manually update the num_qubits variable to your desired count (e.g., 30, 32, 34). The default is typically set to 36.
+- Files to edit: simulator_cuda.h, vectorspace_cuda.h
+- Variable: num_qubits = [YOUR_QUBIT_COUNT];
+
+### Select Library Path
+Ensure your build targets the correct library source depending on your node configuration:
+- Single Node (1 Node, 4 GPUs): Use source code in /ScaleQsim/lib_test/lib_multigpu
+- Multi-Node: Use source code in /ScaleQsim/lib
+- Backup/Spare version available at /ScaleQsim/lib_test/lib_multinode
+
+### Environment Setup
+
+```
+1. Activate Conda Environment (optional)
+conda activate [conda_name]
+
+2. Load Modules
+module load PrgEnv-nvidia
+module load cudatoolkit/12.2
+module load python/3.9
+module load cray-mpich/8.1.27
+module load nccl/2.21.5
+
+3. Reload Accelerator Module (Required for correct GTL linking on Cray)
+module unload craype-accel-nvidia80
+module load craype-accel-nvidia80
+
+4. Export Environment Variables
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+5.Set Paths (Dynamically matches the active conda env) If $CONDA_PREFIX is empty, replace it with your absolute env path.
+export CONDA_PREFIX=${CONDA_PREFIX:/CONDA_HOME}
+export CUDA_PATH=[CUDA_PATH]
+
+6. Link GPU Transport Layer (GTL) for MPI
+export LD_PRELOAD=$CONDA_PREFIX/lib/libmpi_gtl_cuda.so
+
+7. Set Visible Devices 
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+```
+
+### Build
+ScaleQsim contains extensive hard-coded logic. If you want to run any experiment, you must rebuild the project.
+```
+cd /ScaleQsim
+make -j [proc]
+```
+
+### Run
+
+Single Node Execution: Config-1 Node with 4 GPUs (All GPUs utilized)
+```
+srun -n 1 --ntasks=1 --gpus-per-node=4 --mpi=pmi2 python qft.py
+```
+Multi-Node Execution: Config-4 Nodes (16 GPUs total)
+```
+srun -n 4 --ntasks=4 --gpus-per-node=4 --mpi=pmi2 python qft.py
+```
+Multi-Node Execution: Config-8 Nodes (32 GPUs total)
+```
+srun -n 8 --ntasks=8 --gpus-per-node=4 --mpi=pmi2 python qft.py
+```
+
+### Verifying Performance
+When you check the logs, the line labeled “simu time” indicates the correct measurement. This value represents the actual simulation time for executing all gates in the circuit.
+
+### Circuits Used
+We only used static circuits, and all circuit implementations were written with Cirq (Our benchmark included the ScaleQsim project). 
+
+###
+
 
 ---
 
