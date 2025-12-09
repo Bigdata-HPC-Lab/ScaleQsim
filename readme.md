@@ -11,7 +11,7 @@ To efficiently support multi-Node/GPUs, ScaleQsim introduces:
 - A two-phase state vector partitioning scheme (inter-node and intra-node),
 - A target index generation and mapping system for efficient memory access,
 - An adaptive kernel tuning mechanism that dynamically adjusts workloads.
-- The framework is built upon Google’s Qsim, but redesigned to support multi-node, multi-GPU distributed simulation with low synchronization overhead and scalable memory layout. Our evaluation demonstrates significant speedups (up to 6.15×) over existing state-of-the-art simulators like cuStateVec and Qsim.
+The framework is built upon Google’s Qsim, but redesigned to support multi-node, multi-GPU distributed simulation with low synchronization overhead and scalable memory layout. Our evaluation demonstrates significant speedups (up to 6.15×) over existing state-of-the-art simulators like cuStateVec and Qsim.
   
 
 ---
