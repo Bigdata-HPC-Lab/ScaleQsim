@@ -44,11 +44,55 @@ ScaleQsim modifies and extends the following core Qsim modules:
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.9 or higher
 - MPI library (OpenMPI, MPICH, or compatible)
-- Modern C++ compiler (GCC 9+ or Clang 10+)
+- Modern C++ compiler (GCC 11+ or Clang 10+)
 - CMake 3.15+
-- (Optional) CUDA 11.0+ for GPU acceleration
+- (Optional) CUDA 12.0+ for GPU acceleration
+- CUDA Toolkit 12.2
+
+### Environment Setup (NERSC Perlmutter)
+
+- PrgEnv-nvidia
+- cudatoolkit/12.2
+- craype-accel-nvidia80
+- python/3.9
+- cray-mpich/8.1.27
+- gcc/11.2.0
+
+## Quick Start (NERSC Perlmutter) 
+
+### Environment Setup
+
+```
+1. Activate Conda Environment (optional]
+conda activate [conda_name]
+
+2. Load Modules
+module load PrgEnv-nvidia
+module load cudatoolkit/12.2
+module load python/3.9
+module load cray-mpich/8.1.27
+module load nccl/2.21.5
+
+3. Reload Accelerator Module (Required for correct GTL linking on Cray)
+module unload craype-accel-nvidia80
+module load craype-accel-nvidia80
+
+4. Export Environment Variables
+export MPICH_GPU_SUPPORT_ENABLED=1
+
+Set Paths (Dynamically matches the active Conda env)
+If $CONDA_PREFIX is empty, replace it with your absolute env path.
+export CONDA_PREFIX=${CONDA_PREFIX:/CONDA_HOME}
+export CUDA_PATH=[CUDA_PATH]
+
+5. Link GPU Transport Layer (GTL) for MPI
+export LD_PRELOAD=$CONDA_PREFIX/lib/libmpi_gtl_cuda.so
+
+6. Set Visible Devices 
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+```
 
 
 ---
