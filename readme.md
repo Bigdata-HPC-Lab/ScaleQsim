@@ -185,7 +185,6 @@ When you check the logs, the line labeled “simu time” indicates the correct 
 ### Circuits Used
 We only used static circuits, and all circuit implementations were written with Cirq (Our benchmark included the ScaleQsim project). 
 
-
 ---
 
 ## Performance Characteristics
