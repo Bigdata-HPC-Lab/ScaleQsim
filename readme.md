@@ -136,7 +136,7 @@ module load PrgEnv-nvidia
 module load cudatoolkit/12.2
 module load python/3.9
 module load cray-mpich/8.1.27
-module load nccl/2.21.5
+module load gcc/11.2.0
 
 3. Reload Accelerator Module (Required for correct GTL linking on Cray)
 module unload craype-accel-nvidia80
