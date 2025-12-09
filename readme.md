@@ -106,6 +106,8 @@ ScaleQsim follows a modular, layered architecture designed for maximum scalabili
 - cray-mpich/8.1.27
 - gcc/11.2.0
 
+---
+
 ## Quick Start (Perlmutter@NERSC) 
 
 ### Configuration 
