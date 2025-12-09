@@ -191,17 +191,29 @@ We only used static circuits, and all circuit implementations were written with 
 ## Performance Characteristics
 
 ### Benchmarks
-
-ScaleQsim demonstrates strong scaling performance across modern HPC systems:
-
-| System | Qubits | Nodes | Execution Time | Speedup |
-|--------|--------|-------|----------------|---------|
-| Single GPU (V100) | 24 | 1 | 2.14s | 1.0x |
-| 4 GPU Nodes | 28 | 4 | 1.23s | 1.74x |
-| 16 GPU Nodes | 32 | 16 | 0.78s | 2.74x |
-| 64 GPU Nodes | 36 | 64 | 0.52s | 4.11x |
+ScaleQsim was evaluated on the NERSC Perlmutter system using NVIDIA A100-80GB GPUs. The benchmarks utilize Quantum Fourier Transform (QFT) circuits to measure simulation runtime and scalability.
 
 *Benchmark on exascale HPC system with NVIDIA A100 GPUs (Random quantum circuits with depth 100)*
+
+
+### Large-Scale Performance (Multi-Node)
+Scalability test up to 256 GPUs (64 Nodes) comparing ScaleQsim vs. cusvaer.
+
+| Configuration | Qubits | ScaleQsim | cuStateVec | Speedup |
+|:--------------|:------:|:---------:|:----------:|:-------:|
+| **16 GPUs** (4 Nodes) | 36 | 18.58s | 36.91s | **1.98x** |
+| **64 GPUs** (16 Nodes) | 38 | 14.17s | 27.61s | **1.95x** |
+| **256 GPUs** (64 Nodes) | 40 | 33.02s | 68.47s | **2.07x** |
+
+### Strong Scaling (Fixed Problem Size)
+Comparison of execution time for a fixed 36-Qubit circuit as resources increase:
+
+| Configuration | Execution Time |
+|:--------------|:--------------:|
+| **16 GPUs** | 18.58s |
+| **64 GPUs** | 6.03s |
+| **128 GPUs** | 4.28s |
+| **256 GPUs** | 1.41s |
 
 ### Memory Efficiency
 
