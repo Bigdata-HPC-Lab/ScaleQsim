@@ -164,7 +164,6 @@ make -j [proc]
 ```
 
 ### Run
-
 Single Node Execution: Config-1 Node with 4 GPUs (All GPUs utilized)
 ```
 srun -n 1 --ntasks=1 --gpus-per-node=4 --mpi=pmi2 python qft.py
