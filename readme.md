@@ -1,5 +1,5 @@
 # ScaleQsim: Highly Scalable Quantum Circuit Simulation Framework for Exascale HPC Systems
-## SIGMETRICS 2026 - (Link)[https://dl.acm.org/doi/pdf/10.1145/3771577]
+## SIGMETRICS 2026 - [Paper Link](https://dl.acm.org/doi/pdf/10.1145/3771577)
 
 [Installation](#installation) | [Usage](#usage) | [Performance](#performance) | [Citation](#citation)
 
@@ -15,7 +15,7 @@ To efficiently support multi-Node/GPUs, ScaleQsim introduces:
 - The framework is built upon Google’s Qsim, but redesigned to support multi-node, multi-GPU distributed simulation with low synchronization overhead and scalable memory layout.
 - Our evaluation demonstrates significant speedups (up to 6.15×) over existing state-of-the-art simulators like cuStateVec and Qsim.
 
-  <img width="486" height="176" alt="image" src="https://github.com/user-attachments/assets/e46f3d34-ad1a-464c-ba0e-4030012b19a6" />
+  <img width="972" height="352" alt="image" src="https://github.com/user-attachments/assets/e46f3d34-ad1a-464c-ba0e-4030012b19a6" />
 
 ---
 
