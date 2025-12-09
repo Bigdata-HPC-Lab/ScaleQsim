@@ -1,6 +1,6 @@
 # ScaleQsim: Highly Scalable Quantum Circuit Simulation Framework for Exascale HPC Systems
 
-[Features](#features) | [Quick Start](#quick-start) | [Installation](#installation) | [Usage](#usage) | [Performance](#performance) | [Citation](#citation)
+[Installation](#installation) | [Usage](#usage) | [Performance](#performance) | [Citation](#citation)
 
 ---
 
