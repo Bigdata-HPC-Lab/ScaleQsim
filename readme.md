@@ -12,7 +12,7 @@
 ## Overview
 
 ScaleQsim is a distributed full-state quantum circuit simulator based on Google's Qsim.
-It is designed to support extereme-scale HPC systems such as Perlmutter@NERSC while utilizing exiting effiicent quantim simulation logic from Qsim.  
+It is designed to support extreme-scale HPC systems such as Perlmutter@NERSC while utilizing existing efficient quantum simulation logic from Qsim.  
 To efficiently support multi-Node/GPUs, ScaleQsim introduces:
 - A two-phase state vector partitioning scheme (inter-node and intra-node),
 - A target index generation and mapping system for efficient memory access,
@@ -60,7 +60,7 @@ ScaleQsim modifies and extends the following core Qsim modules:
 - cray-mpich/8.1.27
 - gcc/11.2.0
 
-## Quick Start (NERSC Perlmutter) 
+## Quick Start (Perlmutter@NERSC) 
 
 ### Environment Setup
 
