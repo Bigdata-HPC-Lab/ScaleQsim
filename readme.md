@@ -11,41 +11,12 @@ To efficiently support multi-Node/GPUs, ScaleQsim introduces:
 - A two-phase state vector partitioning scheme (inter-node and intra-node),
 - A target index generation and mapping system for efficient memory access,
 - An adaptive kernel tuning mechanism that dynamically adjusts workloads.
-
-The framework is built upon Google’s Qsim, but redesigned to support multi-node, multi-GPU distributed simulation with low synchronization overhead and scalable memory layout.  
-Our evaluation demonstrates significant speedups (up to 6.15×) over existing state-of-the-art simulators like cuStateVec and Qsim.
+  
+The framework is built upon Google’s Qsim, but redesigned to support multi-node, multi-GPU distributed simulation with low synchronization overhead and scalable memory layout. Our evaluation demonstrates significant speedups (up to 6.15×) over existing state-of-the-art simulators like cuStateVec and Qsim.
 ---
 
 ## Key Features
 
-### Scalability & Performance
-
-- **Distributed State-Vector Simulation**: Efficiently distribute quantum state across multiple compute nodes using advanced memory management and communication optimization
-- **Exascale Readiness**: Purpose-built for exascale HPC systems supporting thousands of cores and GPUs
-- **Dynamic Load Balancing**: Intelligent task distribution ensures optimal resource utilization across heterogeneous computing resources
-
-### Advanced Simulation Capabilities
-
-- **Support for Large Circuits**: Simulate quantum circuits with 30+ qubits on distributed memory systems
-- **Multiple Gate Sets**: Comprehensive support for standard quantum gates including single-qubit rotations, multi-qubit entangling gates, and custom gate definitions
-- **Circuit Optimization**: Integrated gate fusion and circuit compilation techniques to minimize simulation overhead
-- **Flexible Backends**: Support for both CPU and GPU acceleration on HPC clusters
-
-### Developer-Friendly Interface
-
-- **Python API**: Intuitive Python interface compatible with Qiskit, Cirq, and other popular quantum computing frameworks
-- **MPI & GPU Support**: Seamless integration with MPI (Message Passing Interface) for distributed computing and CUDA/HIP for GPU acceleration
-- **Comprehensive Benchmarking Tools**: Built-in profiling and performance analysis utilities
-
-### Performance Characteristics
-
-- **High Throughput**: Optimized for executing multiple circuit simulations in parallel
-- **Memory Efficiency**: Advanced state vector compression and caching strategies
-- **Low Latency Communication**: Minimized inter-node communication overhead with smart qubit mapping
-- **Strong Scaling**: Near-linear scaling performance across compute nodes
-
-
-## Key Features
 - Scalable to hundreds of GPUs with efficient memory distribution and task mapping.
 - Supports bitmask-based target index enumeration for precise gate application.
 - Provides adaptive CUDA kernel scheduling to balance performance and memory usage.
