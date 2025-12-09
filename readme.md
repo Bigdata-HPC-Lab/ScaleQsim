@@ -11,7 +11,8 @@
 
 ## Overview
 
-ScaleQsim is a distributed full-state quantum circuit simulator designed for large-scale HPC systems.  
+ScaleQsim is a distributed full-state quantum circuit simulator based on Google's Qsim.
+It is designed to support extereme-scale HPC systems such as Perlmutter@NERSC while utilizing exiting effiicent quantim simulation logic from Qsim.  
 To efficiently support multi-Node/GPUs, ScaleQsim introduces:
 - A two-phase state vector partitioning scheme (inter-node and intra-node),
 - A target index generation and mapping system for efficient memory access,
