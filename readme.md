@@ -3,7 +3,7 @@
 </p>
 
 # ScaleQsim: Highly Scalable Quantum Circuit Simulation Framework for Exascale HPC Systems
-## SIGMETRICS 2026 - [Paper Link]([https://dl.acm.org/doi/pdf/10.1145/3771577](https://dl.acm.org/doi/10.1145/3771577)) (Tested in Perlmutter@NERSC)
+## SIGMETRICS 2026 - [Paper Link](https://dl.acm.org/doi/10.1145/3771577) (Tested in Perlmutter@NERSC)
 
 [Installation](#installation) | [Usage](#usage) | [Performance](#performance) | [Citation](#citation)
 
