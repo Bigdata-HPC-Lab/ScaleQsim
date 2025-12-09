@@ -109,7 +109,7 @@ ScaleQsim follows a modular, layered architecture designed for maximum scalabili
 ## Quick Start (Perlmutter@NERSC) 
 
 ### Configuration 
-ScaleQsim contains extensive hard-coded logic for performance optimization. You must modify the source code and rebuild the project before every experiment, especially when changing variables (e.g., num_qubits = [qubit counts]).
+ScaleQsim contains hard-coded logic. You must modify the source code and rebuild the project before every experiment, especially when changing variables (e.g., num_qubits = [qubit counts]).
 
 ### Hardware Requirements
 ScaleQsim was developed and tested only on A100-80GB GPUs (with HBM). Therefore, behavior on A100-40GB is not fully validated.
