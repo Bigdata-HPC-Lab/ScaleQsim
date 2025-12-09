@@ -5,7 +5,7 @@
 # ScaleQsim: Highly Scalable Quantum Circuit Simulation Framework for Exascale HPC Systems
 ## SIGMETRICS 2026 - [Paper Link](https://dl.acm.org/doi/10.1145/3771577) (Tested in Perlmutter@NERSC)
 
-[Installation](#installation) | [Usage](#quick-start-perlmutternersc) | [Performance](#performance-characteristics) | [Citation](#publications-citation)
+[Installation](#installation) | [Usage](#quick-start-perlmutternersc) | [Performance](#performance-characteristics) | [Citation](#publications-and-citation)
 
 ---
 
@@ -222,7 +222,7 @@ Comparison of execution time for a fixed 36-Qubit circuit as resources increase:
 
 ---
 
-## Publications & Citation
+## Publications and Citation
 
 If you use ScaleQsim in your research, please cite:
 
